@@ -1,0 +1,40 @@
+{
+  "name": "react-node-to-string",
+  "version": "0.0.1",
+  "description": "Extract string from React node.",
+  "main": "build/index.js",
+  "scripts": {
+    "ts": "tsc -w",
+    "code": "npm run ts",
+    "build": "rm -fr build/*; tsc",
+    "ncu": "ncu -u"
+  },
+  "author": "Sun Knudsen <hello@sunknudsen.com>",
+  "license": "MIT",
+  "keywords": [
+    "react"
+  ],
+  "devDependencies": {
+    "@types/react": "^16.9.56",
+    "npm-check-updates": "^10.0.0",
+    "typescript": "^4.0.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sunknudsen/react-node-to-string.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sunknudsen/react-node-to-string/issues"
+  },
+  "homepage": "https://github.com/sunknudsen/react-node-to-string#readme",
+  "prettier": {
+    "endOfLine": "lf",
+    "printWidth": 80,
+    "semi": false,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  }
+}
