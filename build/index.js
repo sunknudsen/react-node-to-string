@@ -1,9 +1,6 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react"));
+const react_1 = require("react");
 const reactNodeToString = function (reactNode) {
     let string = "";
     if (typeof reactNode === "string") {
@@ -14,10 +11,11 @@ const reactNodeToString = function (reactNode) {
     }
     else if (reactNode instanceof Array) {
         reactNode.forEach(function (child) {
-            if (react_1.default.isValidElement(child)) {
-                string += reactNodeToString(child.props.children);
-            }
+            string += reactNodeToString(child);
         });
+    }
+    else if (react_1.isValidElement(reactNode)) {
+        string += reactNodeToString(reactNode.props.children);
     }
     return string;
 };

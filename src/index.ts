@@ -1,6 +1,6 @@
 "use strict"
 
-import React from "react"
+import React, { isValidElement } from "react"
 
 const reactNodeToString = function (reactNode: React.ReactNode): string {
   let string = ""
@@ -10,10 +10,10 @@ const reactNodeToString = function (reactNode: React.ReactNode): string {
     string = reactNode.toString()
   } else if (reactNode instanceof Array) {
     reactNode.forEach(function (child) {
-      if (React.isValidElement(child)) {
-        string += reactNodeToString(child.props.children)
-      }
+      string += reactNodeToString(child)
     })
+  } else if (isValidElement(reactNode)) {
+    string += reactNodeToString(reactNode.props.children)
   }
   return string
 }
