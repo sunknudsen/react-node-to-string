@@ -5,7 +5,7 @@ import reactNodeToString from "./index"
 type Test = [input: React.ReactNode, expectedOutput: string]
 
 describe("react-node-to-string", () => {
-  it("outputs correct string", () => {
+  it("extract correct string", () => {
     const tests: Test[] = [
       ["lorem ipsum", "lorem ipsum"],
       [123, "123"],
