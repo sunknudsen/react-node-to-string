@@ -7,7 +7,7 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const assert_1 = __importDefault(require("assert"));
 const index_1 = __importDefault(require("./index"));
 describe("react-node-to-string", () => {
-    it("outputs correct string", () => {
+    it("extracts correct string", () => {
         const tests = [
             ["lorem ipsum", "lorem ipsum"],
             [123, "123"],
