@@ -7,7 +7,8 @@
     "ts": "tsc -w",
     "code": "npm run ts",
     "build": "rm -fr build/*; tsc",
-    "ncu": "ncu -u"
+    "ncu": "ncu -u",
+    "test": "jest"
   },
   "author": "Sun Knudsen <hello@sunknudsen.com>",
   "license": "MIT",
@@ -15,7 +16,15 @@
     "react"
   ],
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/jest": "^27.0.1",
     "@types/react": "^17.0.9",
+    "assert": "^2.0.0",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6",
     "npm-check-updates": "^11.6.0",
     "typescript": "^4.3.2"
   },
@@ -36,5 +45,24 @@
     "semi": false,
     "tabWidth": 2,
     "trailingComma": "es5"
+  },
+  "jest": {
+    "transform": {
+      "\\.[jt]sx?$": "babel-jest"
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-typescript",
+      "@babel/preset-react"
+    ]
   }
 }
