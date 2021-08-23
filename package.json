@@ -25,7 +25,6 @@
     "react"
   ],
   "devDependencies": {
-    "@babel/core": "^7.15.0",
     "@types/jest": "^27.0.1",
     "@types/react": "^17.0.9",
     "assert": "^2.0.0",
