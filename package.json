@@ -1,12 +1,22 @@
 {
   "name": "react-node-to-string",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Extract string from React node.",
   "main": "build/index.js",
+  "files": [
+    "build/index.d.ts",
+    "build/index.js.map",
+    "build/index.js",
+    "package.json",
+    "LICENCE",
+    "README.md"
+  ],
   "scripts": {
     "ts": "tsc -w",
     "code": "npm run ts",
     "build": "rm -fr build/*; tsc",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build; jest build/test.js",
     "ncu": "ncu -u"
   },
   "author": "Sun Knudsen <hello@sunknudsen.com>",
@@ -15,7 +25,10 @@
     "react"
   ],
   "devDependencies": {
+    "@types/jest": "^27.0.1",
     "@types/react": "^17.0.9",
+    "assert": "^2.0.0",
+    "jest": "^27.0.6",
     "npm-check-updates": "^11.6.0",
     "typescript": "^4.3.2"
   },
