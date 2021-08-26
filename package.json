@@ -16,7 +16,7 @@
     "code": "npm run ts",
     "build": "rm -fr build/*; tsc",
     "prepublishOnly": "npm run build",
-    "test": "jest build/test.js",
+    "test": "npm run build; jest build/test.js",
     "ncu": "ncu -u"
   },
   "author": "Sun Knudsen <hello@sunknudsen.com>",
