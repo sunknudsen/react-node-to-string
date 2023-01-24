@@ -7,3 +7,6 @@
 # Node files
 /node_modules
 npm-debug.log
+
+# Build files
+/build
