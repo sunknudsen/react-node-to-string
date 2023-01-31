@@ -8,10 +8,10 @@ const reactNodeToString = function (reactNode: React.ReactNode): string {
     string = reactNode
   } else if (typeof reactNode === "number") {
     string = reactNode.toString()
-  } else if (reactNode instanceof Array) {
-    reactNode.forEach(function (child) {
+  } else if (typeof reactNode === 'object' && reactNode && Symbol.iterator in reactNode) {
+    for (const child of reactNode) {
       string += reactNodeToString(child)
-    })
+    }
   } else if (isValidElement(reactNode)) {
     string += reactNodeToString(reactNode.props.children)
   }

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode } from 'react';
 import assert from "assert"
 import reactNodeToString from "./index"
 
@@ -15,6 +15,7 @@ describe("react-node-to-string", () => {
       [void 0, ""],
       [["lorem", "ipsum"], "loremipsum"],
       [["lorem", <>ipsum</>], "loremipsum"],
+      [makeIterableNodes(["lorem", "ipsum"]), "loremipsum"],
       [<></>, ""],
       [<>lorem ipsum</>, "lorem ipsum"],
       [
@@ -33,3 +34,21 @@ describe("react-node-to-string", () => {
     })
   })
 })
+
+function makeIterableNodes (text: ReactNode[]): Iterable<ReactNode> {
+  return {
+    [Symbol.iterator]() {
+      let i = 0
+      const iterator: Iterator<ReactNode> = {
+        next () {
+          return {
+            done: i === text.length,
+            value: text[i++]
+          }
+        }
+      }
+
+      return iterator;
+    }
+  }
+}
